@@ -2,9 +2,14 @@ import xlrd
 import xlsxwriter as xw
 import os
 
+#新生成的xlsx文件路径指定
+NewWorkBookPath=r'C:\Users\97759\Documents\hb\new\myexcel.xlsx'
+#原始待合并xlsx文件目录路径
+WorkBookDirPath=r'C:\Users\97759\Documents\hb'
+
 if __name__ == '__main__':
     # 指定生成的文件完整路径
-    desWorkBookPath=r'C:\Users\97759\Desktop\project\myexcel.xlsx'
+    desWorkBookPath=NewWorkBookPath
     try:
         # 创建新工作簿
         desWorkbook = xw.Workbook(desWorkBookPath)
@@ -24,7 +29,7 @@ if __name__ == '__main__':
     pointCols=0
 
     #指定文件所在的目录路径
-    dirPath=r'C:\Users\97759\Desktop\project\hb'
+    dirPath=WorkBookDirPath
     for root,dirnames,filenames in os.walk(dirPath):
         for filename in filenames:
             #数据缓存列表
